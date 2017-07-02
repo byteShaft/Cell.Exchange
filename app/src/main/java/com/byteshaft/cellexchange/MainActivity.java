@@ -20,9 +20,4 @@ public class MainActivity extends FragmentActivity {
         Helpers.loadFragment(fragmentManager, new WelcomeFragment(), "WelcomeFragment");
     }
 
-
-    @Override
-    public void onBackPressed() {
-        super.onBackPressed();
-    }
 }
