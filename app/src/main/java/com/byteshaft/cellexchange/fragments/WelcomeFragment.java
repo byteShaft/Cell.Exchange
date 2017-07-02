@@ -95,11 +95,9 @@ public class WelcomeFragment extends Fragment {
                     ArrayList<String> tempArrayListData = new ArrayList<>();
                     tempArrayListData.add(jsonObject.getString("ad_title"));
                     tempArrayListData.add(jsonObject.getString("model_number"));
-                    tempArrayListData.add(jsonObject.getString("stock_type"));
-                    tempArrayListData.add(jsonObject.getString("color"));
                     tempArrayListData.add(jsonObject.getString("storage_capacity"));
                     tempArrayListData.add(jsonObject.getString("product_condition"));
-                    tempArrayListData.add(jsonObject.getString("specification"));
+                    tempArrayListData.add(jsonObject.getString("qty"));
                     hashMapDevicesList.put(id, tempArrayListData);
                 }
             }
@@ -133,23 +131,17 @@ public class WelcomeFragment extends Fragment {
                 LayoutInflater layoutInflater = getActivity().getLayoutInflater();
                 convertView = layoutInflater.inflate(R.layout.row_list_devices, parent, false);
                 viewHolder.tvDevicesTitle = convertView.findViewById(R.id.tv_lv_devices_title);
-                viewHolder.tvDevicesModelNumber = convertView.findViewById(R.id.tv_lv_devices_model_number);
-                viewHolder.tvDevicesStockType = convertView.findViewById(R.id.tv_lv_devices_stock_type);
-                viewHolder.tvDevicesColor = convertView.findViewById(R.id.tv_lv_devices_color);
-                viewHolder.tvDevicesStorageCapacity = convertView.findViewById(R.id.tv_lv_devices_storage_capacity);
-                viewHolder.tvDevicesProductCondition = convertView.findViewById(R.id.tv_lv_devices_product_condition);
-                viewHolder.tvDevicesSpecification = convertView.findViewById(R.id.tv_lv_devices_product_specification);
+                viewHolder.tvDevicesModelNumberAndStorage = convertView.findViewById(R.id.tv_lv_devices_model_number_and_storage);
+                viewHolder.tvDevicesConditionAndQuantity = convertView.findViewById(R.id.tv_lv_devices_condition_and_quantity);
                 convertView.setTag(viewHolder);
             } else {
                 viewHolder = (ViewHolder) convertView.getTag();
             }
             viewHolder.tvDevicesTitle.setText(hashMapDevicesList.get(arrayListIds.get(position)).get(0));
-            viewHolder.tvDevicesModelNumber.setText("Model: " + hashMapDevicesList.get(arrayListIds.get(position)).get(1));
-            viewHolder.tvDevicesStockType.setText("Stock Type: " + hashMapDevicesList.get(arrayListIds.get(position)).get(2));
-            viewHolder.tvDevicesColor.setText("Color: " + hashMapDevicesList.get(arrayListIds.get(position)).get(3));
-            viewHolder.tvDevicesStorageCapacity.setText("Storage: " + hashMapDevicesList.get(arrayListIds.get(position)).get(4));
-            viewHolder.tvDevicesProductCondition.setText("Condition: " + hashMapDevicesList.get(arrayListIds.get(position)).get(5));
-            viewHolder.tvDevicesSpecification.setText("Specification: " + hashMapDevicesList.get(arrayListIds.get(position)).get(6));
+            viewHolder.tvDevicesModelNumberAndStorage.setText("Model: " + hashMapDevicesList.get(arrayListIds.get(position)).get(1) +
+                    ", Storage: " + hashMapDevicesList.get(arrayListIds.get(position)).get(2));
+            viewHolder.tvDevicesConditionAndQuantity.setText("Condition: " + hashMapDevicesList.get(arrayListIds.get(position)).get(3) +
+                    ", Qty: " + hashMapDevicesList.get(arrayListIds.get(position)).get(4));
             return convertView;
         }
 
@@ -161,11 +153,7 @@ public class WelcomeFragment extends Fragment {
 
     private static class ViewHolder {
         TextView tvDevicesTitle;
-        TextView tvDevicesModelNumber;
-        TextView tvDevicesStockType;
-        TextView tvDevicesColor;
-        TextView tvDevicesStorageCapacity;
-        TextView tvDevicesProductCondition;
-        TextView tvDevicesSpecification;
+        TextView tvDevicesModelNumberAndStorage;
+        TextView tvDevicesConditionAndQuantity;
     }
 }

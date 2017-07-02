@@ -1,69 +1,78 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:padding="16dp"
-    android:background="#80000000"
-    android:gravity="center">
+    android:layout_height="wrap_content"
+    android:padding="8dp"
+    android:orientation="horizontal">
 
-    <TextView
-        android:id="@+id/tv_lv_devices_title"
+    <RelativeLayout
+        android:id="@+id/rl_flag"
+        android:layout_width="52dp"
+        android:layout_height="52dp"
+        android:layout_gravity="center_vertical"
+        android:layout_marginStart="8dp"
+        android:padding="6dp"
+        android:background="@mipmap/background_flag">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/flag"
+            android:layout_centerInParent="true"/>
+
+    </RelativeLayout>
+
+    <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
-        android:textSize="16dp"
-        android:typeface="serif"
-        android:textColor="#ffffff"
-        android:textStyle="bold"/>
+        android:orientation="vertical"
+        android:layout_marginLeft="16dp"
+        android:layout_toRightOf="@+id/rl_flag"
+        android:layout_gravity="center_vertical">
+
+        <TextView
+            android:id="@+id/tv_lv_devices_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="14dp"
+            android:typeface="serif"
+            android:textColor="#ffffff"/>
+
+        <TextView
+            android:id="@+id/tv_lv_devices_model_number_and_storage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="10dp"
+            android:layout_marginTop="4dp"
+            android:textColor="#ffffff"
+            android:typeface="serif"/>
+
+        <TextView
+            android:id="@+id/tv_lv_devices_condition_and_quantity"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="10dp"
+            android:textColor="#ffffff"
+            android:typeface="serif"/>
+    </LinearLayout>
 
     <TextView
-        android:id="@+id/tv_lv_devices_model_number"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="LPC"
-        android:textSize="12dp"
-        android:layout_marginTop="10dp"
+        android:layout_toLeftOf="@+id/iv_close"
+        android:layout_alignParentTop="true"
+        android:layout_marginEnd="28dp"
+        android:text="WTS"
         android:textColor="#ffffff"
-        android:typeface="serif"/>
+        android:textSize="16dp"/>
 
-    <TextView
-        android:id="@+id/tv_lv_devices_stock_type"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="12dp"
-        android:textColor="#ffffff"
-        android:typeface="serif"/>
 
-    <TextView
-        android:id="@+id/tv_lv_devices_color"
+    <ImageView
+        android:id="@+id/iv_close"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="12dp"
-        android:textColor="#ffffff"
-        android:typeface="serif"/>
-
-    <TextView
-        android:id="@+id/tv_lv_devices_storage_capacity"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="12dp"
-        android:textColor="#ffffff"
-        android:typeface="serif"/>
-
-    <TextView
-        android:id="@+id/tv_lv_devices_product_condition"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="12dp"
-        android:textColor="#ffffff"
-        android:typeface="serif"/>
-
-    <TextView
-        android:id="@+id/tv_lv_devices_product_specification"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="12dp"
-        android:textColor="#ffffff"
-        android:typeface="serif"/>
-</LinearLayout>
+        android:src="@mipmap/ic_close"
+        android:layout_marginEnd="8dp"
+        android:layout_alignParentEnd="true"
+        android:layout_centerVertical="true"/>
+</RelativeLayout>
